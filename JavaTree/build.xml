@@ -1,0 +1,29 @@
+<project name="examples" default="eg1" basedir=".">
+<!--comment end of comment-->
+
+  <property name="javacc.home" value="/usr/local/javacc/"/>
+
+  <target name="eg1" description="Builds example 'eg1'">
+
+    <mkdir dir="eg1"/> 
+    <copy file="eg1.jjt" todir="eg1"/>
+    <jjtree target="eg1.jjt" outputdirectory="eg1" javacchome="C:\Program Files\javacc-5.0"/>
+    <javacc target="eg1/eg1.jj" outputdirectory="eg1" javacchome="C:\Program Files\javacc-5.0"/>
+    <javac deprecation="false" srcdir="eg1" destdir="eg1"/>
+    <echo message="*******"/>
+    <echo message="******* Now cd into the eg1 directory and run 'java Eg1' ******"/>
+    <echo message="*******"/>
+  </target>
+
+  <target name="all" description="Builds all examples" depends="clean,eg1">
+    <echo message="*******"/>
+    <echo message="******* All Built ******"/>
+    <echo message="*******"/>
+  </target>
+    
+  <target name="clean" description="Cleans up any example directories">
+    <delete dir="eg1"/>
+  </target>
+    
+
+</project>

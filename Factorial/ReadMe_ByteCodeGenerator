@@ -1,0 +1,29 @@
+After I write 
+	javap -c Factorial
+into the terminal, the following bytecode reveals:
+
+aload_0             load a reference onto the stack from local variable 0
+					The prefix 'a' means that the opcode (=JVM instruction) is manipulating an object reference.
+invokespecial #1    invoke instance method on object objectref and puts the result on the stack (might be void).
+                    din ce clasa se mosteneste (by default, all classes inherit from java.lang.Object )
+return              return void from method
+
+getstatic     #2    get a static field value of a class
+new           #3    create new object of the type identified by class reference
+dup                 duplicate the value on top of the stack
+invokespecial #4    invoke constructor
+bipush		  10	push 10 onto the stack as an integer value
+invokevirtual #5    puts the result on the stack (might be void)
+invokevirtual #6
+return
+
+* Statements dup and invokevirtual are the Java Virtual Machine (JVM) equivalent of assembly language.
+* You might code differently to achieve memory or performance goals
+* byteCode - pentru a observa dimensiunea progr, memo ocupata,timpul de executie.
+* Progr e convertit in Bytecode(fisierele .class) si executat de JVM
+* Pt fiecare thread memoria este alocata pe stack:
+    toate met invocate, var initializate
+    si referinta catre obiectele noi care sunt stocate pe heap.
+* A stack is composed of frames: stiva si array
+* Consider that the more bytecode you have, the bigger the .class file is and the more code that
+  has to be compiled by a JIT (is a way of executing computer code on runtime)

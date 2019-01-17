@@ -1,0 +1,22 @@
+#deschide terminalul cu Ctrl+Alt+t
+#verifica path-ul C:\Users\Teodora\workspace\ProiectMiniJava
+
+#generarea parserului cu javacc
+#parsare = analiza sintactica a codului (verif. daca sintaxa e scrisa corect)
+javacc MiniJava.jj
+
+cd Factorial
+
+#compilarea clasei java
+javac Factorial.java
+
+#executarea claselor java
+java Factorial
+
+#idem cu QuickSort
+
+exit
+
+
+#revenire la folderul anterior
+cd..
